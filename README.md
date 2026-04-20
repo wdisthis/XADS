@@ -21,14 +21,6 @@ As a Data Science student or developer, you may frequently encounter the MySQL S
 | **System Restoration** | Manual copy-paste from `/backup` | Instant structural rebuild of the data directory |
 | **Data Migration** | Moving folders one by one | Smart filtering: Migrates only user DBs & `ibdata1` |
 
-## ✨ New Features (v2.0)
-
-- 🎨 **Visual Feedback**: Colorful terminal UI for better readability.
-- 🔍 **Auto-Detection**: Automatically falls back to standard text if ANSI colors are not supported.
-- 🛡️ **Confirmation Prompt**: Asks for your permission before performing any destructive actions.
-- 📊 **Progress Tracking**: Shows real-time migration status for each database.
-- 🚀 **Quick Restart**: Direct option to reopen XAMPP Control Panel once finished.
-
 ## Getting Started
 
 ### Prerequisites
