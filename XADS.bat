@@ -36,12 +36,11 @@ if %errorLevel% neq 0 (
 
 :: --- 3. Welcome Header ---
 cls
-echo %C_CYAN%##################################################%C_RESET%
-echo %C_CYAN%#                                                #%C_RESET%
-echo %C_CYAN%#    %C_BOLD%%C_WHITE%XAMPP DATABASE AUTO-RECOVERY SYSTEM%C_RESET%%C_CYAN%      #%C_RESET%
-echo %C_CYAN%#                                                #%C_RESET%
-echo %C_CYAN%##################################################%C_RESET%
+echo %C_CYAN%==================================================%C_RESET%
+echo %C_BOLD%%C_WHITE%    XAMPP DATABASE AUTO-RECOVERY SYSTEM%C_RESET%
+echo %C_CYAN%==================================================%C_RESET%
 echo.
+
 
 :: --- 4. Input XAMPP Directory Path ---
 echo %C_CYAN%[i]%C_RESET% Please specify your XAMPP installation path.
@@ -56,7 +55,7 @@ if "%USER_PATH%"=="" (
 set "MYSQL_PATH=%XAMPP_PATH%\mysql"
 if not exist "%MYSQL_PATH%" (
     echo.
-    echo %C_RED%[!] ERROR: MySQL directory not found at: %XAMPP_PATH%%C_RESET%
+    echo %C_RED%[^!] ERROR: MySQL directory not found at: %XAMPP_PATH%%C_RESET%
     echo     Please verify the path and try again.
     pause
     exit /b
@@ -72,7 +71,7 @@ echo %C_YELLOW%    and archive your current data folder.%C_RESET%
 set /p "CONFIRM=    Are you sure you want to proceed? (Y/N): "
 if /i not "%CONFIRM%"=="Y" (
     echo.
-    echo %C_RED%[!] Operation cancelled by user.%C_RESET%
+    echo %C_RED%[^!] Operation cancelled by user.%C_RESET%
     timeout /t 3 >nul
     exit /b
 )
@@ -100,7 +99,6 @@ if %errorLevel% neq 0 (
     exit /b
 )
 echo     %C_GREEN%Done.%C_RESET%
-
 
 :: --- 8. Rebuilding Data Structure ---
 echo.
@@ -144,9 +142,9 @@ echo     %C_GREEN%ibdata1 restored.%C_RESET%
 
 :: --- 11. Success Message ---
 echo.
-echo %C_CYAN%##################################################%C_RESET%
+echo %C_CYAN%==================================================%C_RESET%
 echo %C_GREEN%%C_BOLD%         [SUCCESS] RECOVERY COMPLETE!           %C_RESET%
-echo %C_CYAN%##################################################%C_RESET%
+echo %C_CYAN%==================================================%C_RESET%
 echo.
 echo %C_WHITE%All user databases have been safely migrated.%C_RESET%
 echo.
@@ -157,6 +155,7 @@ if /i "%OPEN_XAMPP%"=="Y" (
     echo %C_CYAN%[i] Starting XAMPP Control Panel...%C_RESET%
     start "" "%XAMPP_PATH%\xampp-control.exe"
 )
+
 
 echo.
 echo %C_YELLOW%Press any key to exit...%C_RESET%
